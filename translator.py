@@ -30,12 +30,15 @@ def setup_translator(file="1337.txt"):
     def unleetify(word):
         translated = ""
         part = ""
-        for x in word:
-            part += x
-            if part not in rev_al.keys():
-                continue
-            translated += rev_al[part]
-            part = ""
+        word = word.split(" ")
+        for words in word:
+            for x in words:
+                part += x
+                if part not in rev_al.keys():
+                    continue
+                translated += rev_al[part]
+                part = ""
+            translated += " "
         return translated
 
     return (leetify, unleetify)
